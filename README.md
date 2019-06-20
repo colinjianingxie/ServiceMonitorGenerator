@@ -64,15 +64,15 @@ def write(new_yaml_data_dict):
 ##############################################
 
 def main():
-  #################################################
+	#################################################
 	# DELETE THE YAML FILE (SO WE CAN OVERWRITE IT) #
-  #################################################
+	#################################################
 	if os.path.exists(SERVICE_MONITOR_YAML_FILE_NAME):
 		os.remove(SERVICE_MONITOR_YAML_FILE_NAME)
 
-  ##########################
+	##########################
 	# CONNECTING TO MINIKUBE #
-  ##########################
+	##########################
 	kube_config = os.getenv('KUBE_CONFIG')
 	context = os.getenv('CONTEXT')
 
@@ -83,15 +83,15 @@ def main():
 	    logging.warning("Setting proxy: {}".format(proxy_url))
 	    client.Configuration._default.proxy = proxy_url
   
-  ##########################
+	##########################
 	# ACCESSING Minikube API #
-  ##########################
+	##########################
 	kubernetes_client = client.CoreV1Api()
 	v1 = client.CoreV1Api()
 
-  ###########################
+	###########################
 	# GETTING THE NAMESPACES  #
-  ###########################
+	###########################
 	for ns in kubernetes_client.list_namespace().items:
 		temp_namespace = ns.metadata.name # Getting each specific namespace
     
