@@ -7,9 +7,13 @@ Python script that creates a service monitor YAML file for all the services in c
 - Working knowledge of Kubernetes
 - Prometheus installed that Autodiscovers namespaces and service monitors
 
+# Basic Setup
+You will need to have some services deployed in a custom namespace and have Prometheus installed. Prometheus is a tool that helps scrape metrics. To set up Prometheus and have the services deployed, follow this [github tutorial](https://github.com/colinjianingxie/ServiceMonitoring#kubernetes). You will need to have the prometheus-operator deployed as well as prometheus. 
+
 # How the Service Monitor is formatted
 For every service that needs monitoring, there needs to be a **service monitor** uploaded within the namespace of the service.
-A sample service monitor looks like the following:
+A sample **ServiceMonitor.yaml** looks like the following:
+
 ```
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -25,8 +29,10 @@ spec:
   endpoints:
   - port: web
 ```
+
 The following tags need to be noted:
-1. name: (Name of the service monitor)
-2. namespace: (Namespace the service monitor will be deployed in - should be same as the namespace of the service)
-3. app: (service name)
-4. port: (service end point, as listed in the custom service's YAML file)
+- name: (Name of the service monitor)
+- namespace: (Namespace where service monitor is deployed in - same as the namespace of the service)
+- app: (service name)
+- port: (service end point, as listed in the custom service's YAML file)
+
