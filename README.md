@@ -53,11 +53,11 @@ SERVICE_MONITOR_YAML_FILE_NAME = "test.yaml"
 # WRITING TO THE YAML FILE/UPDATING IT #
 ########################################
 def write(new_yaml_data_dict):
-	with open(SERVICE_MONITOR_YAML_FILE_NAME, "a") as fo:
-		fo.write("---\n")
-	sdump = yaml.dump(new_yaml_data_dict,indent=0)
-	with open(SERVICE_MONITOR_YAML_FILE_NAME, "a") as fo:
-		fo.write(sdump)
+  with open(SERVICE_MONITOR_YAML_FILE_NAME, "a") as fo:
+    fo.write("---\n")
+  sdump = yaml.dump(new_yaml_data_dict,indent=0)
+  with open(SERVICE_MONITOR_YAML_FILE_NAME, "a") as fo:
+    fo.write(sdump)
     
 ##############################################
 # MAIN FUNCTION, WHERE WE GENERATE YAML FILE #
