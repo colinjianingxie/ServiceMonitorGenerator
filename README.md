@@ -36,8 +36,6 @@ The following tags need to be noted:
 - app: (service name)
 - port: (service end point, as listed in the custom service's YAML file)
 
-# Service Monitor Python Code Explanation (Code at bottom)
-
 # Service Monitor Python Code
 
 ```python
@@ -121,4 +119,18 @@ def main():
 main()
 ```
 
+# How to Run Python code
+You will need to run a proxy server on minikube for the code to detect minikube.
 
+1. Start Minikube by running
+```
+minikube start
+```
+2. Start the Proxy by running
+```
+kubectl proxy
+```
+3. Navigate to where the python project is. Run the following:
+```
+python3 service_monitor_generator.py
+```
