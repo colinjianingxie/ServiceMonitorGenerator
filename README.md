@@ -140,4 +140,5 @@ python3 service_monitor_generator.py
 kubectl apply -f service_monitors.yaml
 ```
 
-5. Finished! Prometheus auto discovers all the namespaces and service monitors so, it will automatically detect all the service monitors that we just generated. We create all the service monitors in 1 file to avoid manually deploying each service monitor with a designated namespace (e.g. kubectl apply -f random_namespace service_monitor1.yaml, kubectl apply -f random_namespace2 service_monitor2.yaml).
+# Finished!
+Prometheus auto discovers all the namespaces and service monitors so, it will automatically detect all the service monitors that we just generated. We create all the service monitors in 1 file to avoid manually deploying each service monitor with a designated namespace (e.g. kubectl apply -f random_namespace service_monitor1.yaml, kubectl apply -f random_namespace2 service_monitor2.yaml).
