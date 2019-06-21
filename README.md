@@ -44,7 +44,7 @@ import yaml
 from kubernetes import client, config
 
 # Change if needed
-SERVICE_MONITOR_YAML_FILE_NAME = "test.yaml"
+SERVICE_MONITOR_YAML_FILE_NAME = "service_monitors.yaml"
 
 
 ########################################
@@ -134,3 +134,10 @@ kubectl proxy
 ```
 python3 service_monitor_generator.py
 ```
+
+4. Deploy the generated service_monitors.yaml file by running the command:
+```
+kubectl apply -f service_monitors.yaml
+```
+
+5. Finished! Prometheus auto discovers all the namespaces and service monitors so, it will automatically detect all the service monitors that we just generated. We create all the service monitors in 1 file to avoid manually deploying each service monitor with a designated namespace (e.g. kubectl apply -f random_namespace service_monitor1.yaml, kubectl apply -f random_namespace2 service_monitor2.yaml).
